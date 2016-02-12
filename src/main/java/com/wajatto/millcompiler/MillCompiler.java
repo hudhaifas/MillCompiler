@@ -1,3 +1,5 @@
+package com.wajatto.millcompiler;
+
 /*
  * MillCompiler.java
  * No copyright reserved !� 2006

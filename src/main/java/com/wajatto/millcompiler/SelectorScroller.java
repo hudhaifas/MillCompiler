@@ -1,3 +1,5 @@
+package com.wajatto.millcompiler;
+
 /*
  * SelectorScroller.java
  *

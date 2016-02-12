@@ -1,6 +1,8 @@
+package com.wajatto.millcompiler;
+
 /*
  * Tokenizer.java
- * No copyright reserved !© 2006
+ * No copyright reserved !ï¿½ 2006
  * Created on February 26, 2006, 7:30 PM
  */
 

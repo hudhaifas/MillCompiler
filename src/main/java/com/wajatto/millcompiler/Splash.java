@@ -1,6 +1,8 @@
+package com.wajatto.millcompiler;
+
 /*
  * @(#)Splash.java
- * No copyright reserved !© 2006
+ * No copyright reserved !ï¿½ 2006
  * Created on 11 February 2006, 23:11
  */
 

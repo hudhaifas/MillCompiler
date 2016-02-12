@@ -1,6 +1,8 @@
+package com.wajatto.millcompiler;
+
 /*
  * MainFrame.java
- * No copyright reserved !© 2006
+ * No copyright reserved !ï¿½ 2006
  * Created on February 24, 2006, 1:28 AM
  */
 
