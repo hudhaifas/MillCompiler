@@ -5,7 +5,6 @@ package com.wajatto.millcompiler;
  * No copyright reserved !� 2006
  * Created on February 24, 2006, 1:13 AM
  */
-
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -15,6 +14,16 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @version
  */
 public class MillCompiler {
+
+    /**
+     * Creates a new instance of MillCompiler
+     *
+     * @since 1.0
+     */
+    public MillCompiler() {
+        MillStatic.mainFrame = new MainFrame();
+
+    } // END: MillCompiler constructor
 
     /**
      * @param args the command line arguments
@@ -45,16 +54,6 @@ public class MillCompiler {
         new MillCompiler();
 
     } // END: main
-
-    /**
-     * Creates a new instance of MillCompiler
-     *
-     * @since 1.0
-     */
-    public MillCompiler() {
-        MillStatic.mainFrame = new MainFrame();
-
-    } // END: MillCompiler constructor
 
     private static final String lookAndFeel = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
 } // END: class Compiler

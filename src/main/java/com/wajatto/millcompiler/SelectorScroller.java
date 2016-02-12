@@ -5,7 +5,6 @@ package com.wajatto.millcompiler;
  *
  * Created on February 25, 2006, 12:30 PM
  */
-
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,12 +22,14 @@ import creator.MenuCreator;
 
 /**
  *
- * @author  Hudhaifa
+ * @author Hudhaifa
  */
 public class SelectorScroller
         extends JScrollPane {
 
-    /** Creates new form SelectorScroller */
+    /**
+     * Creates new form SelectorScroller
+     */
     public SelectorScroller() {
         setupMenus();
         addMenus();
@@ -45,17 +46,17 @@ public class SelectorScroller
 
         // set up popup menu and its items
         popupMenu = new JPopupMenu();
-        closeMenuItem = MenuCreator.creatItem( "Close document", 'C' );
+        closeMenuItem = MenuCreator.creatItem("Close document", 'C');
 
     } // END: setupMenus
 
     public void addMenus() {
-        popupMenu.add( closeMenuItem );
+        popupMenu.add(closeMenuItem);
 
     } // END: addMenus
 
     public void registrationMenus() {
-        closeMenuItem.addActionListener( new SelectorScrollerListener() );
+        closeMenuItem.addActionListener(new SelectorScrollerListener());
 
     } // END: registrationMenus
 
@@ -67,8 +68,8 @@ public class SelectorScroller
      */
     private void setupComponents() {
         mainFrame = MillStatic.getMainFrameInstance();
-        MillStatic.documentsList = new JList( MillStatic.documents );
-        MillStatic.documentsList.setSelectionMode( ListSelectionModel.SINGLE_SELECTION );
+        MillStatic.documentsList = new JList(MillStatic.documents);
+        MillStatic.documentsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
     } // END: setupComponents
 
@@ -77,7 +78,7 @@ public class SelectorScroller
      * @since 1.0
      */
     private void addComponents() {
-        setViewportView( MillStatic.documentsList );
+        setViewportView(MillStatic.documentsList);
 
     } // END: addComponents
 
@@ -85,8 +86,8 @@ public class SelectorScroller
      * @since 1.0
      */
     private void registration() {
-        MillStatic.documentsList.addListSelectionListener( new SelectorScrollerListener() );
-        MillStatic.documentsList.addMouseListener( new SelectorScrollerListener() );
+        MillStatic.documentsList.addListSelectionListener(new SelectorScrollerListener());
+        MillStatic.documentsList.addMouseListener(new SelectorScrollerListener());
 
     } // END: registration
 
@@ -94,8 +95,8 @@ public class SelectorScroller
      * @since 1.0
      */
     private void setupScroller() {
-        setPreferredSize( new Dimension( 150, 200 ) );
-        setBorder( BorderFactory.createEtchedBorder() );
+        setPreferredSize(new Dimension(150, 200));
+        setBorder(BorderFactory.createEtchedBorder());
 
     } // END: setupScroller
 
@@ -103,7 +104,7 @@ public class SelectorScroller
             extends MouseAdapter
             implements ActionListener, ListSelectionListener {
 
-        public void actionPerformed( ActionEvent ae ) {
+        public void actionPerformed(ActionEvent ae) {
             Object source = ae.getSource();
             MillStatic.closeEditor();
 
@@ -111,45 +112,49 @@ public class SelectorScroller
 
         /**
          * Invoked when an action occurs.
+         *
          * @since 1.0
          */
-        public void valueChanged( ListSelectionEvent lse ) {
-			try {
-				int index = MillStatic.documentsList.getSelectedIndex();
-				if ( index != -1 ) {
-					EditorFrame editor = ( EditorFrame ) MillStatic.panels.get( index );
-					editor.setSelected( true );
-					mainFrame.setSelectedEditor( editor );
+        public void valueChanged(ListSelectionEvent lse) {
+            try {
+                int index = MillStatic.documentsList.getSelectedIndex();
+                if (index != -1) {
+                    EditorFrame editor = (EditorFrame) MillStatic.panels.get(index);
+                    editor.setSelected(true);
+                    mainFrame.setSelectedEditor(editor);
 
-				} // END: if
+                } // END: if
 
-			} catch ( Exception exception ) {
-			} // END: try..catch
+            } catch (Exception exception) {
+            } // END: try..catch
 
         } // END: actionPerformed
 
         // handle mouse press event
-        public void mousePressed( MouseEvent me ) {
-            if ( MillStatic.documents.size() > 0 && MillStatic.documentsList.getSelectedIndex() != -1 )
-                checkForTriggerEvent( me );
+        public void mousePressed(MouseEvent me) {
+            if (MillStatic.documents.size() > 0 && MillStatic.documentsList.getSelectedIndex() != -1) {
+                checkForTriggerEvent(me);
+            }
 
         } // END: mousePressed
 
         // handle mouse release event
-        public void mouseReleased( MouseEvent me ) {
-            if ( MillStatic.documents.size() > 0 && MillStatic.documentsList.getSelectedIndex() != -1 )
-                checkForTriggerEvent( me );
+        public void mouseReleased(MouseEvent me) {
+            if (MillStatic.documents.size() > 0 && MillStatic.documentsList.getSelectedIndex() != -1) {
+                checkForTriggerEvent(me);
+            }
 
         } // END: mouseReleased
 
         // determine whether event should trigger popup menu
-        private void checkForTriggerEvent( MouseEvent me ) {
-            if ( me.isPopupTrigger() )
-                popupMenu.show( me.getComponent(), me.getX(), me.getY() );
+        private void checkForTriggerEvent(MouseEvent me) {
+            if (me.isPopupTrigger()) {
+                popupMenu.show(me.getComponent(), me.getX(), me.getY());
+            }
 
         } // END: checkForTriggerEvent
 
-        public void mouseClicked( MouseEvent me ) {
+        public void mouseClicked(MouseEvent me) {
         } // END: mouseClicked
 
         private Object source;

@@ -1,0 +1,17 @@
+main {
+	int x, y;
+	real z;
+	x = 0;
+	z = 2.0;
+
+	while ( x  5 ) {
+		if  y > x ) {
+			cout y;
+
+		} else {
+			cin y;
+			cout z;
+
+		}
+	}
+}
